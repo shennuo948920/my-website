@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>小测试</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>每周小测试</h1>
+  <p>请选择经文：</p>
+
+  <button onclick="showChapter('GEN1')">约1:17</button>
+  <button onclick="showChapter('GEN2')">约1:18</button>
+
+  <p>这里是内容……</p>
+
+  <!-- 播放音乐按钮 -->
+
+
+  <!-- 音频文件（加上 controls，方便调试） -->
+  <audio id="myAudio" controls>
+    <source src="song.mp3" type="audio/mpeg">
+    您的浏览器不支持音频播放。
+  </audio>
+
+  <div id="content" style="margin-top:20px;"></div>
+
+  <script src="script.js"></script>
+  <script>
+    // 播放音乐按钮逻辑
+    const btn = document.getElementById("playBtn");
+    const audio = document.getElementById("myAudio");
+    let isPlaying = false;
+
+    btn.addEventListener("click", () => {
+      if (isPlaying) {
+        audio.pause();
+        btn.textContent = "▶ 播放音乐";
+      } else {
+        audio.play();
+        btn.textContent = "⏸ 暂停音乐";
+      }
+      isPlaying = !isPlaying;
+    });
+  </script>
+</body>
+</html>
